@@ -4,7 +4,7 @@ const customProduct = document.querySelector('#custom-product');
 const addBtn = document.querySelector('#add-btn');
 const shoppingList = document.querySelector('#shopping-list');
 const quantity = document.querySelector('#quantity');
-
+//const itemTools = document.querySelectorAll('[data-action]');
 
 
 const dairy = [
@@ -82,18 +82,44 @@ product.innerHTML = '';
     });
 }
 
+const createToolsContainer = () => {
+    checkIcon = document.createElement('img');
+    removeIcon = document.createElement('img');
+
+    checkIcon.setAttribute('src', 'icons/check.png');
+    removeIcon.setAttribute('src', 'icons/remove.png');
+
+    checkIcon.setAttribute('data-action', 'check');
+    removeIcon.setAttribute('data-action', 'remove');
+
+
+    toolsContainer = document.createElement('div');
+    
+    toolsContainer.classList.add('tools-container');
+    toolsContainer.append(checkIcon, removeIcon);
+
+    itemTools = document.querySelectorAll('[data-action]');
+}
+
 const addProduct = () => {
-    shoppingItem = document.createElement('div');
+    const shoppingItem = document.createElement('div');
     shoppingItem.classList.add('shopping-list-item');
     if(customProduct.value === ''){
         shoppingItem.textContent = quantity.value + 'x ' + product.options[product.selectedIndex].textContent;
     } else{
-        shoppingItemt.extContent = quantity.value + 'x ' + customProduct.value;
+        shoppingItem.textContent = quantity.value + 'x ' + customProduct.value;
         customProduct.value = '';
     }
 
+    createToolsContainer();
+
+   
+
+    shoppingItem.append(toolsContainer);
     document.querySelector(`[data-category="${category.value}"]`).append(shoppingItem);   
     quantity.value = 1;
+
+
     
 }
 
@@ -128,8 +154,39 @@ const checkCategory = () => {
 
 }
 
+const setQuantity = () => {
+    if(quantity.value < 0){
+        quantity.value = quantity.value * -1;
+        console.log(quantity.value);
+    }
+}
+
+const setDefaultValue = () => {
+    if(quantity.value === ''){
+        quantity.value = 1;
+    }
+}
+
+const checkTool = (e) => {
+    if(e.target.matches("[data-action='check'")){
+        e.target.closest('.shopping-list-item').classList.toggle('checked');
+    } else if(e.target.matches("[data-action='remove'")){
+        closestContainer = e.target.closest('.shopping-list-container');
+        e.target.closest('.shopping-list-item').remove();
+
+        if(closestContainer.querySelectorAll('.shopping-list-item').length === 0){
+            closestContainer.remove();
+        }
+
+    }
+}
+
+
 showProduct();
 
 
 category.addEventListener('change', showProduct);
 addBtn.addEventListener('click', checkCategory);
+quantity.addEventListener('keyup', setQuantity);
+quantity.addEventListener('focusout', setDefaultValue);
+shoppingList.addEventListener('click', checkTool);

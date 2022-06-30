@@ -68,7 +68,40 @@ h1{
 }
 
 .shopping-list-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 20px;
+}
+
+.tools-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tools-container img{
+  height: 16px;
+  padding: 10px;
+}
+
+.tools-container img:hover{
+  cursor: pointer;
+  transform-origin: center center;
+  transform: scale(1.1);
+  transition: all 100ms;
+}
+
+.checked{
+  text-decoration: line-through;
+  font-style: italic;
+  color: rgb(174, 174, 174);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.shopping-list-container .checked:last-child{
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 input, select, button{
@@ -76,10 +109,11 @@ input, select, button{
 }
 
 [data-category='bread'].shopping-list-container .shopping-list-bar{
-  background-color: rgb(184, 182, 149);
+  background: rgb(139,116,74);
+  background: linear-gradient(90deg, rgba(139,116,74,1) 0%, rgba(133,117,88,1) 100%);
 }
 [data-category='bread'].shopping-list-container{
-  background-color: rgb(202, 201, 172);
+  background-color: rgb(157, 146, 120);
 }
 
 [data-category='dairy'].shopping-list-container .shopping-list-bar{
