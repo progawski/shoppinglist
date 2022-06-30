@@ -5,7 +5,8 @@ body{
   background: #acb6e5;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #86fde8, #acb6e5);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #86fde8, #acb6e5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  font-family: 'Roboto', sans-serif;
+  color: rgb(59, 59, 59);
 }
 
 .main{
@@ -30,8 +31,6 @@ h1{
   margin-top: 10px;
   margin-bottom: 30px;
   text-align: center;
-  font-family: 'Roboto', sans-serif;
-  color: rgb(71, 71, 71);
 }
 
 #category, #product, #custom-product, button{
@@ -49,48 +48,78 @@ h1{
 #shopping-list{
   display: flex;
   flex-direction: column;
-  /* border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  box-shadow: 0px 4px 15px 2px rgba(0, 0, 0, 0.247); */
+  margin-bottom: 20px;
 }
 
 .shopping-list-container{
   background-color: #d8d5a6;
   border-radius: 20px;
+  margin-top: 20px;
+  box-shadow: 0px 4px 15px 2px rgba(0, 0, 0, 0.247);
+}
+
+.shopping-list-bar{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .shopping-list-item{
   padding: 20px;
 }
 
-.shopping-list-item:first-child{
-  margin-top: 10px;
-}
-
-.shopping-list-item:last-child{
-  margin-bottom: 10px;
-}
-
 input, select, button{
   padding: 5px;
 }
 
-[data-category].shopping-list-bar{
-  margin-top: 20px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  padding: 20px;
+[data-category='bread'].shopping-list-container .shopping-list-bar{
+  background-color: rgb(184, 182, 149);
+}
+[data-category='bread'].shopping-list-container{
+  background-color: rgb(202, 201, 172);
 }
 
-[data-category='bread']{
-  background-color: #b9b682;
+[data-category='dairy'].shopping-list-container .shopping-list-bar{
+  background-color: rgb(207, 207, 207);
+}
+[data-category='dairy'].shopping-list-container{
+  background-color: rgb(231, 231, 231);
 }
 
-[data-category='bread'].shopping-list-item{
-  background-color: #d8d5a6;
+[data-category='drinks'].shopping-list-container .shopping-list-bar{
+  background-color: rgb(162, 170, 201);
+}
+[data-category='drinks'].shopping-list-container{
+  background-color: rgb(183, 192, 226);
 }
 
-[data-category='bread']:last-child.shopping-list-item{
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+[data-category='fruits'].shopping-list-container .shopping-list-bar{
+  background-color: rgb(223, 170, 146);
+}
+[data-category='fruits'].shopping-list-container{
+  background-color: rgb(241, 188, 167);;
+}
+
+[data-category='meat'].shopping-list-container .shopping-list-bar{
+  background-color: rgb(212, 170, 200);
+}
+[data-category='meat'].shopping-list-container{
+  background-color: rgb(231, 195, 220);
+}
+
+[data-category='snacks'].shopping-list-container .shopping-list-bar{
+  background-color: rgb(191, 138, 221);
+}
+[data-category='snacks'].shopping-list-container{
+  background-color: rgb(208, 168, 231);
+}
+
+[data-category='other'].shopping-list-container .shopping-list-bar{
+  background-color: rgb(124, 175, 173);
+}
+[data-category='other'].shopping-list-container{
+  background-color: rgb(149, 207, 205);
 }

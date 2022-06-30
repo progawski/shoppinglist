@@ -100,6 +100,7 @@ const addProduct = () => {
 const addCategory = () => {
     shoppingCategory = document.createElement('div');
     shoppingCategoryTitle = document.createElement('div');
+    shoppingCategoryTitle.classList.add('shopping-list-bar');
 
     shoppingCategory.classList.add('shopping-list-container');
     shoppingCategory.setAttribute('data-category', category.value);
