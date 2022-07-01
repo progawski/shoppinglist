@@ -2,11 +2,8 @@
 
 body{
   margin: 0;
-  background: #acb6e5;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #86fde8, #acb6e5);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #86fde8, #acb6e5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: rgb(219, 219, 219);
   font-family: 'Roboto', sans-serif;
-  color: rgb(59, 59, 59);
 }
 
 .main{
@@ -21,16 +18,20 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(245, 245, 245);
+    background: linear-gradient(90deg, rgb(44, 44, 44) 0%, rgb(61, 61, 61) 100%);
     padding: 20px;
-    box-shadow: 0px 4px 15px 2px rgba(0, 0, 0, 0.247);
+    box-shadow: 0px 4px 15px 2px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
-}
+    color: #fff;
+    border: 1px solid #000;
+  }
 
 h1{
   margin-top: 10px;
   margin-bottom: 30px;
   text-align: center;
+  color: rgb(120, 196, 44);
+  font-size: 32px;
 }
 
 #category, #product, #custom-product, button{
@@ -45,6 +46,19 @@ h1{
   margin-bottom: 20px;
 }
 
+.category-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+label{
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
 #shopping-list{
   display: flex;
   flex-direction: column;
@@ -52,10 +66,9 @@ h1{
 }
 
 .shopping-list-container{
-  background-color: #d8d5a6;
   border-radius: 20px;
   margin-top: 20px;
-  box-shadow: 0px 4px 15px 2px rgba(0, 0, 0, 0.247);
+  box-shadow: 0px 4px 15px 2px rgba(0, 0, 0, 0.2);
 }
 
 .shopping-list-bar{
@@ -63,8 +76,10 @@ h1{
   border-top-right-radius: 20px;
   padding: 20px;
   font-size: 18px;
-  font-weight: bold;
   text-align: center;
+  background-color:rgb(0, 0, 0, 0.4);
+  color: #fff;
+  border: 1px solid #000;
 }
 
 .shopping-list-item{
@@ -72,6 +87,16 @@ h1{
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+  transition: background-color 200ms;
+  color: rgb(59, 59, 59);
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+.shopping-list-item:last-child{
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom: 1px solid #000;
 }
 
 .tools-container{
@@ -95,8 +120,9 @@ h1{
 .checked{
   text-decoration: line-through;
   font-style: italic;
-  color: rgb(174, 174, 174);
-  background-color: rgba(0, 0, 0, 0.2);
+  color: rgb(110, 110, 110);
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: background-color 200ms;
 }
 
 .shopping-list-container .checked:last-child{
@@ -104,56 +130,61 @@ h1{
   border-bottom-right-radius: 20px;
 }
 
-input, select, button{
+input, select{
   padding: 5px;
+  border-radius: 10px;
 }
 
-[data-category='bread'].shopping-list-container .shopping-list-bar{
-  background: rgb(139,116,74);
-  background: linear-gradient(90deg, rgba(139,116,74,1) 0%, rgba(133,117,88,1) 100%);
+button{
+  background-color: rgb(120, 196, 44);
+  font-size: 16px;
+  border-radius: 15px;
+  padding: 10px;
+  width: 100%;
+  outline: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+button:hover{
+  cursor: pointer;
+  background-color: rgb(146, 224, 68);
+}
+
+button img{
+  height: 20px;
+}
+
 [data-category='bread'].shopping-list-container{
-  background-color: rgb(157, 146, 120);
+  background: linear-gradient(90deg, rgba(209,178,123,1) 0%, rgb(206, 170, 104) 100%);
 }
 
-[data-category='dairy'].shopping-list-container .shopping-list-bar{
-  background-color: rgb(207, 207, 207);
-}
 [data-category='dairy'].shopping-list-container{
-  background-color: rgb(231, 231, 231);
+  background: linear-gradient(90deg, rgb(202, 202, 202) 0%, rgb(170, 170, 170) 100%);
 }
 
-[data-category='drinks'].shopping-list-container .shopping-list-bar{
-  background-color: rgb(162, 170, 201);
-}
 [data-category='drinks'].shopping-list-container{
-  background-color: rgb(183, 192, 226);
+  background: linear-gradient(90deg, rgb(168, 203, 214) 0%, rgb(135, 163, 184) 100%);
 }
 
-[data-category='fruits'].shopping-list-container .shopping-list-bar{
-  background-color: rgb(223, 170, 146);
-}
 [data-category='fruits'].shopping-list-container{
-  background-color: rgb(241, 188, 167);;
+  background: linear-gradient(90deg, rgb(228, 219, 138) 0%, rgb(216, 208, 100) 100%);
 }
 
-[data-category='meat'].shopping-list-container .shopping-list-bar{
-  background-color: rgb(212, 170, 200);
-}
 [data-category='meat'].shopping-list-container{
-  background-color: rgb(231, 195, 220);
+  background: linear-gradient(90deg, rgb(228, 171, 209) 0%, rgb(202, 147, 188) 100%);
 }
 
-[data-category='snacks'].shopping-list-container .shopping-list-bar{
-  background-color: rgb(191, 138, 221);
-}
 [data-category='snacks'].shopping-list-container{
-  background-color: rgb(208, 168, 231);
+  background: linear-gradient(90deg, rgb(235, 165, 165) 0%, rgb(197, 138, 138) 100%);
 }
 
-[data-category='other'].shopping-list-container .shopping-list-bar{
-  background-color: rgb(124, 175, 173);
-}
 [data-category='other'].shopping-list-container{
-  background-color: rgb(149, 207, 205);
+  background: linear-gradient(90deg, rgb(180, 165, 235) 0%, rgb(156, 138, 197) 100%);
+}
+
+[data-category='vegetables'].shopping-list-container{
+  background: linear-gradient(90deg, rgb(165, 235, 174) 0%, rgb(138, 197, 146) 100%);
 }

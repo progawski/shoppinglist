@@ -38,7 +38,8 @@ const fruits = [
     'Blueberry',
     'Blackberry',
     'Cherry',
-    'Grape'
+    'Grape',
+    'Kiwi'
 ]
 
 const meat = [
@@ -58,6 +59,15 @@ const snacks = [
     'Salted sticks'
 ]
 
+const vegetables = [
+    'Carrot',
+    'Tomatoe',
+    'Onion',
+    'Potato',
+    'Cucumber',
+    'Pepper',
+]
+
 const other = [
     'Toilet paper',
     'Shampoo',
@@ -72,6 +82,7 @@ const itemsList = {
     fruits: fruits,
     meat: meat,
     snacks: snacks,
+    vegetables: vegetables,
     other: other
 }
 
@@ -170,6 +181,11 @@ const setDefaultValue = () => {
 const checkTool = (e) => {
     if(e.target.matches("[data-action='check'")){
         e.target.closest('.shopping-list-item').classList.toggle('checked');
+        if(e.target.closest('img').getAttribute('src') === 'icons/check.png'){
+            e.target.closest('img').setAttribute('src', 'icons/back.png');
+        } else{
+            e.target.closest('img').setAttribute('src', 'icons/check.png');
+        }
     } else if(e.target.matches("[data-action='remove'")){
         closestContainer = e.target.closest('.shopping-list-container');
         e.target.closest('.shopping-list-item').remove();
