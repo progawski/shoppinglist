@@ -27,9 +27,10 @@
             <label for="product">Select product or enter your own</label>
             <div class="product-container">
                 <select id="product"></select>
-                <span>/</span>
-                <input type="text" id="custom-product">
+                <span>&nbsp / &nbsp</span>
+                <input type="text" id="custom-product" maxlength="25">
             </div>
+            <div id="custom-product-limit"></div>
             <div class="quantity-container">
                 <label for="quantity">Quantity</label>
                 <input type="number" id="quantity" min="1" value="1" oninput="validity.valid||(value='');">

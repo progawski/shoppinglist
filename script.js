@@ -1,12 +1,17 @@
+/* Assign constant variables */
 const category = document.querySelector('#category');
 const product = document.querySelector('#product');
 const customProduct = document.querySelector('#custom-product');
 const addBtn = document.querySelector('#add-btn');
 const shoppingList = document.querySelector('#shopping-list');
 const quantity = document.querySelector('#quantity');
-//const itemTools = document.querySelectorAll('[data-action]');
+const customProductLimit = document.querySelector('#custom-product-limit');
+const customCharMax = 25; 
 
+/* Set a text for a custom product's limit */
+customProductLimit.textContent = customProduct.value.length + '/' + customCharMax;
 
+/* Assign products to the categories */
 const dairy = [
     'Milk',
     'Eggs',
@@ -75,6 +80,7 @@ const other = [
     'Garbage bags'
 ]
 
+/* Gather all the categories into one object */
 const itemsList = {
     dairy: dairy,
     bread: bread,
@@ -86,13 +92,16 @@ const itemsList = {
     other: other
 }
 
+
+/* Create HTML part with options basing on prepared item list */
 const showProduct = () => {
-product.innerHTML = '';
-   itemsList[category.value].forEach(element => {
+    product.innerHTML = '';
+    itemsList[category.value].forEach(element => {
         product.innerHTML += `<option value=${element.toLowerCase().replaceAll(' ', '-')}>${element}</option>`;
     });
 }
 
+/* Create container with tools' icons */
 const createToolsContainer = () => {
     checkIcon = document.createElement('img');
     removeIcon = document.createElement('img');
@@ -112,6 +121,7 @@ const createToolsContainer = () => {
     itemTools = document.querySelectorAll('[data-action]');
 }
 
+/* Add new product to the shopping list */
 const addProduct = () => {
     const shoppingItem = document.createElement('div');
     shoppingItem.classList.add('shopping-list-item');
@@ -124,16 +134,15 @@ const addProduct = () => {
 
     createToolsContainer();
 
-   
+    quantity.value = 1;
+    checkCharNum();
 
     shoppingItem.append(toolsContainer);
     document.querySelector(`[data-category="${category.value}"]`).append(shoppingItem);   
-    quantity.value = 1;
 
-
-    
 }
 
+/* Add new category to the shopping list */
 const addCategory = () => {
     shoppingCategory = document.createElement('div');
     shoppingCategoryTitle = document.createElement('div');
@@ -149,6 +158,7 @@ const addCategory = () => {
     addProduct();
 }
 
+/* Check if the category is already added to the shopping list */
 const checkCategory = () => {
     const shoppingListContainer = document.querySelectorAll('.shopping-list-container');
 
@@ -165,19 +175,14 @@ const checkCategory = () => {
 
 }
 
+/* Get rid of negative sign */
 const setQuantity = () => {
     if(quantity.value < 0){
         quantity.value = quantity.value * -1;
-        console.log(quantity.value);
     }
 }
 
-const setDefaultValue = () => {
-    if(quantity.value === ''){
-        quantity.value = 1;
-    }
-}
-
+/* Check what icon has been pressed and do a proper action */
 const checkTool = (e) => {
     if(e.target.matches("[data-action='check'")){
         e.target.closest('.shopping-list-item').classList.toggle('checked');
@@ -197,12 +202,23 @@ const checkTool = (e) => {
     }
 }
 
+/* Show the number of chars entered in the custom product's name field */
+const checkCharNum = () => {
+    customProductLimit.textContent = customProduct.value.length + '/' + customCharMax;
+    if(customProduct.value.length === 25){
+        customProductLimit.style.color = '#ff0000';
+    } else{
+        customProductLimit.style.color = '#fff';
+    }
+}
+
 
 showProduct();
 
+/* Add event listeners */
 
 category.addEventListener('change', showProduct);
 addBtn.addEventListener('click', checkCategory);
 quantity.addEventListener('keyup', setQuantity);
-quantity.addEventListener('focusout', setDefaultValue);
 shoppingList.addEventListener('click', checkTool);
+customProduct.addEventListener('input', checkCharNum)

@@ -1,4 +1,8 @@
+/* Import fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* Main settings */
 
 body{
   margin: 0;
@@ -13,18 +17,20 @@ body{
   margin-top: 20px;
 }
 
+/* Shopping list adder */
+
 .container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(90deg, rgb(44, 44, 44) 0%, rgb(61, 61, 61) 100%);
-    padding: 20px;
-    box-shadow: 0px 4px 15px 2px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    color: #fff;
-    border: 1px solid #000;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, rgb(44, 44, 44) 0%, rgb(61, 61, 61) 100%);
+  padding: 20px;
+  box-shadow: 0px 4px 15px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  color: #fff;
+  border: 1px solid #000;
+}
 
 h1{
   margin-top: 10px;
@@ -38,11 +44,19 @@ h1{
   width: 150px;
 }
 
-#quantity{
-  width: 50px;
+label{
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  margin-bottom: 5px;
 }
 
-.category-container, .product-container, .quantity-container{
+input, select{
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.category-container, .quantity-container{
   margin-bottom: 20px;
 }
 
@@ -52,12 +66,40 @@ h1{
   justify-content: center;
 }
 
-label{
-  text-align: center;
-  color: #fff;
+#custom-product-limit{
+  margin-top: 5px;
+  margin-bottom: 10px;
   font-size: 12px;
-  margin-bottom: 5px;
+  margin-left: auto;
 }
+
+#quantity{
+  width: 50px;
+}
+
+button{
+  background-color: rgb(120, 196, 44);
+  font-size: 16px;
+  border-radius: 15px;
+  padding: 10px;
+  width: 100%;
+  outline: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: rgb(146, 224, 68);
+}
+
+button img{
+  height: 20px;
+}
+
+/* Shopping list */
 
 #shopping-list{
   display: flex;
@@ -130,32 +172,7 @@ label{
   border-bottom-right-radius: 20px;
 }
 
-input, select{
-  padding: 5px;
-  border-radius: 10px;
-}
-
-button{
-  background-color: rgb(120, 196, 44);
-  font-size: 16px;
-  border-radius: 15px;
-  padding: 10px;
-  width: 100%;
-  outline: none;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-button:hover{
-  cursor: pointer;
-  background-color: rgb(146, 224, 68);
-}
-
-button img{
-  height: 20px;
-}
+/* Categories' colors */
 
 [data-category='bread'].shopping-list-container{
   background: linear-gradient(90deg, rgba(209,178,123,1) 0%, rgb(206, 170, 104) 100%);
@@ -164,9 +181,9 @@ button img{
 [data-category='dairy'].shopping-list-container{
   background: linear-gradient(90deg, rgb(202, 202, 202) 0%, rgb(170, 170, 170) 100%);
 }
-
+addercle
 [data-category='drinks'].shopping-list-container{
-  background: linear-gradient(90deg, rgb(168, 203, 214) 0%, rgb(135, 163, 184) 100%);
+  background: linear-gradient(90deg, rgb(168, 203, 214) 0%, rgb(135, 163, 184) 100%);adder
 }
 
 [data-category='fruits'].shopping-list-container{
