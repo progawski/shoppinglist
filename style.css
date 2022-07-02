@@ -40,8 +40,12 @@ h1{
   font-size: 32px;
 }
 
-#category, #product, #custom-product, button{
+#category, #product{
   width: 150px;
+}
+
+#custom-product{
+  width: 140px;
 }
 
 label{
@@ -54,6 +58,7 @@ label{
 input, select{
   padding: 5px;
   border-radius: 10px;
+  border: none;
 }
 
 .category-container, .quantity-container{
@@ -66,11 +71,15 @@ input, select{
   justify-content: center;
 }
 
+.product-container{
+  text-align: center;
+}
+
 #custom-product-limit{
   margin-top: 5px;
   margin-bottom: 10px;
   font-size: 12px;
-  margin-left: auto;
+  text-align: right;
 }
 
 #quantity{
@@ -167,11 +176,6 @@ button img{
   transition: background-color 200ms;
 }
 
-.shopping-list-container .checked:last-child{
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-
 /* Categories' colors */
 
 [data-category='bread'].shopping-list-container{
@@ -181,9 +185,9 @@ button img{
 [data-category='dairy'].shopping-list-container{
   background: linear-gradient(90deg, rgb(202, 202, 202) 0%, rgb(170, 170, 170) 100%);
 }
-addercle
+
 [data-category='drinks'].shopping-list-container{
-  background: linear-gradient(90deg, rgb(168, 203, 214) 0%, rgb(135, 163, 184) 100%);adder
+  background: linear-gradient(90deg, rgb(168, 203, 214) 0%, rgb(135, 163, 184) 100%);
 }
 
 [data-category='fruits'].shopping-list-container{
@@ -204,4 +208,54 @@ addercle
 
 [data-category='vegetables'].shopping-list-container{
   background: linear-gradient(90deg, rgb(165, 235, 174) 0%, rgb(138, 197, 146) 100%);
+}
+
+@media (max-width: 480px) {
+  .main {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .container{
+    border-radius: 0;
+  }
+
+  .shopping-list-container{
+    border-radius: 0;
+  }
+
+  .shopping-list-bar{
+    border-radius: 0;
+  }
+
+  .shopping-list-item, .shopping-list-item:last-child{
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 390px) {
+  .product-container span{
+    display: none;
+  }
+
+  #category, #product{
+    width: 200px;
+  }
+
+  #custom-product{
+    width: 190px;
+    margin-top: 5px;
+  }
+
+  #custom-product-limit{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 320px) {
+  .container{
+    padding: 10px;
+  }
+
 }
