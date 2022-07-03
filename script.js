@@ -82,21 +82,21 @@ const other = [
 
 /* Gather all the categories into one object */
 const itemsList = {
-    dairy: dairy,
-    bread: bread,
-    drinks: drinks,
-    fruits: fruits,
-    meat: meat,
-    snacks: snacks,
-    vegetables: vegetables,
-    other: other
+    dairy: dairy.sort(),
+    bread: bread.sort(),
+    drinks: drinks.sort(),
+    fruits: fruits.sort(),
+    meat: meat.sort(),
+    snacks: snacks.sort(),
+    vegetables: vegetables.sort(),
+    other: other.sort()
 }
 
 
 /* Create HTML part with options basing on prepared item list */
 const showProduct = () => {
     product.innerHTML = '';
-    itemsList[category.value].forEach(element => {
+    itemsList[category.value].sort().forEach(element => {
         product.innerHTML += `<option value=${element.toLowerCase().replaceAll(' ', '-')}>${element}</option>`;
     });
 }
